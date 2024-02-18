@@ -122,7 +122,6 @@ func requestAllCoins(link string) ([]byte, error) {
 func readFile(coins []structures.Coin, path string) ([]structures.Coin, error) {
 	var CoinsFile structures.Coins
 
-	// Read JSON data from file
 	data, err := os.ReadFile(path)
 	if err != nil {
 		log.Println("Error reading file:", err)
@@ -176,10 +175,10 @@ func loadEnv() { // load environment variables from .env file
 
 func checkFile(path string) error {
 
-	// Check if file exists
+	// check if file exists
 	_, err := os.Stat(path)
 	if os.IsNotExist(err) {
-		// File doesn't exist, create it
+		// if file doesn't exist, create it
 		file, err := os.Create(path)
 		if err != nil {
 			log.Println("Error creating file:", err)
